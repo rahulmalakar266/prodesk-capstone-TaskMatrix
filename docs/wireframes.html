@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TaskMatrix – Low-fidelity wireframes</title>
+<style>
+:root{--bg:#f1f3f5;--s:#fff;--ln:#adb5bd;--tx:#212529;--mu:#868e96;--ac:#2f5bea;--fill:#e9ecef;color-scheme:light}
+@media (prefers-color-scheme:dark){:root{--bg:#16181b;--s:#212529;--ln:#495057;--tx:#f1f3f5;--mu:#9aa1a8;--ac:#7c9bff;--fill:#2b3035;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:14px/1.4 "IBM Plex Sans",system-ui,sans-serif;padding:24px}
+h1{font-size:22px;margin:0 0 4px}p.sub{color:var(--mu);margin:0 0 28px}
+h2{font-size:15px;margin:36px 0 10px}
+.frame{background:var(--s);border:1.5px solid var(--ln);border-radius:8px;overflow:hidden}
+.desk{max-width:1000px}.mob{width:340px}
+.bar{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1.5px solid var(--ln)}
+.box{border:1.5px dashed var(--ln);border-radius:6px;padding:8px;background:var(--fill)}
+.btn{background:var(--ac);color:#fff;border-radius:6px;padding:8px 12px;text-align:center;font-weight:600}
+.btn.o{background:none;color:var(--tx);border:1.5px solid var(--ln)}
+.in{border:1.5px solid var(--ln);border-radius:6px;padding:8px;color:var(--mu)}
+.row{display:flex;gap:12px}.col{display:flex;flex-direction:column;gap:10px}.grow{flex:1}
+.mu{color:var(--mu);font-size:12px}
+.tag{font-size:11px;border:1.5px solid var(--ln);border-radius:20px;padding:1px 8px}
+.tag.u{border-color:var(--ac);color:var(--ac)}
+.card{border:1.5px solid var(--ln);border-radius:6px;padding:8px;background:var(--s);display:flex;flex-direction:column;gap:6px}
+.av{width:22px;height:22px;border-radius:50%;background:var(--ln);display:inline-block}
+.side{width:190px;border-right:1.5px solid var(--ln);padding:14px;display:flex;flex-direction:column;gap:10px}
+.side div.act{color:var(--ac);font-weight:600}
+.board{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding:14px}
+.lane{background:var(--fill);border-radius:8px;padding:10px;display:flex;flex-direction:column;gap:8px;min-height:260px}
+.lane b{display:flex;justify-content:space-between}
+.drag{outline:2px dashed var(--ac);outline-offset:2px}
+.note{font-size:12px;color:var(--mu);margin-top:6px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.pad{padding:18px}
+.tabs{display:flex;gap:6px}
+.scroll{display:flex;gap:10px;overflow-x:auto;padding:12px}
+.scroll .lane{min-width:230px}
+</style></head><body>
+<h1>TaskMatrix – wireframes</h1>
+<p class="sub">Low-fidelity, grayscale. Blue = interactive/primary. Recreate these in Figma (frames: 1440 desktop, 390 mobile).</p>
+
+<h2>1. Auth screen (desktop)</h2>
+<div class="frame desk"><div class="row" style="min-height:360px">
+ <div class="grow pad col" style="justify-content:center;background:var(--fill)">
+  <b style="font-size:20px">TaskMatrix</b><span>Plan sprints, assign work, ship on time.</span>
+  <div class="box">Illustration: board preview</div></div>
+ <div class="grow pad col" style="justify-content:center;max-width:420px">
+  <b style="font-size:18px">Log in</b>
+  <div class="tabs"><span class="tag u">Log in</span><span class="tag">Sign up</span></div>
+  <div class="in">Email</div><div class="in">Password</div>
+  <div class="btn">Log in</div>
+  <div class="mu">Error state: “Email or password is incorrect.” shown under the button.</div>
+  <div class="mu">Forgot password</div></div>
+</div></div>
+
+<h2>2. Projects dashboard (desktop)</h2>
+<div class="frame desk"><div class="bar"><b>TaskMatrix</b><div class="in grow">Search tasks, projects</div><span class="av"></span></div>
+<div class="row"><div class="side"><div class="act">Dashboard</div><div>Projects</div><div>My tasks</div><div>Activity</div><div>Team</div></div>
+<div class="grow pad col">
+ <div class="row" style="justify-content:space-between"><b style="font-size:18px">Your projects</b><div class="btn">New project</div></div>
+ <div class="stats"><div class="box">Open tasks<br><b>24</b></div><div class="box">Due this week<br><b>7</b></div><div class="box">Overdue<br><b>2</b></div></div>
+ <div class="stats">
+  <div class="card"><b>Website relaunch</b><span class="mu">WEB · 12 tasks</span><div class="box" style="padding:3px"></div><span class="mu">Progress bar · 6 members</span></div>
+  <div class="card"><b>Mobile app v2</b><span class="mu">APP · 31 tasks</span><div class="box" style="padding:3px"></div><span class="mu">Progress bar · 4 members</span></div>
+  <div class="card" style="border-style:dashed"><span class="mu">Empty slot: “Create your next project”</span></div></div>
+ <b>Recent activity</b>
+ <div class="card"><span><span class="av"></span> Aman moved <u>Fix login bug</u> to In review · 5 min ago</span></div>
+</div></div></div>
+
+<h2>3. Kanban board (desktop) – core screen</h2>
+<div class="frame desk"><div class="bar"><b>Website relaunch</b><span class="tag">Admin</span><span class="grow"></span><span class="tag">Filter: priority</span><span class="tag">Assignee</span><div class="btn">Add task</div></div>
+<div class="board">
+ <div class="lane"><b>To do <span class="mu">4</span></b>
+  <div class="card"><span>Design footer</span><span class="row"><span class="tag u">High</span><span class="tag">Due Nov 14</span></span></div>
+  <div class="card"><span>Set up analytics</span><span class="tag">Low</span></div></div>
+ <div class="lane"><b>In progress <span class="mu">3</span></b>
+  <div class="card drag"><span>Build login API</span><span class="row"><span class="tag u">Urgent</span><span class="av"></span></span></div>
+  <div class="note">Dragging card: dashed outline + drop-slot line</div></div>
+ <div class="lane"><b>In review <span class="mu">2</span></b>
+  <div class="card"><span>Fix login bug</span><span class="row"><span class="tag">Medium</span><span class="av"></span></span></div></div>
+ <div class="lane"><b>Done <span class="mu">9</span></b>
+  <div class="card"><span>Write PRD</span><span class="tag">Done</span></div></div>
+</div>
+<div class="pad" style="border-top:1.5px solid var(--ln)"><b>Live activity feed</b> <span class="mu">(collapsible right panel, updates via Socket.io)</span></div></div>
+
+<h2>4. Task details (drawer over board)</h2>
+<div class="frame desk" style="max-width:520px"><div class="pad col">
+ <div class="row" style="justify-content:space-between"><b style="font-size:17px">Build login API</b><span class="mu">Close ✕</span></div>
+ <div class="row"><span class="tag u">Urgent</span><span class="tag">In progress</span><span class="tag">backend</span></div>
+ <div class="box">Description (editable, markdown)</div>
+ <div class="row"><div class="box grow">Assignee<br>Aman</div><div class="box grow">Due date<br>Nov 14</div></div>
+ <b>Comments</b><div class="card">Priya: Use JWT refresh tokens.</div><div class="in">Write a comment…</div>
+ <b>History</b><div class="mu">Status changed To do → In progress · Aman</div>
+ <div class="row"><div class="btn">Save changes</div><div class="btn o">Delete task</div></div>
+ <div class="mu">Viewer role: all fields read-only, buttons hidden.</div></div></div>
+
+<h2>5. Mobile (390px): board + navigation</h2>
+<div class="row" style="flex-wrap:wrap;align-items:flex-start">
+<div class="frame mob"><div class="bar"><span>☰</span><b class="grow">Website relaunch</b><span class="av"></span></div>
+ <div class="tabs pad" style="padding-bottom:0"><span class="tag u">To do</span><span class="tag">In progress</span><span class="tag">Review</span><span class="tag">Done</span></div>
+ <div class="pad col"><div class="card"><span>Design footer</span><span class="row"><span class="tag u">High</span><span class="tag">Nov 14</span></span></div>
+ <div class="card"><span>Set up analytics</span><span class="tag">Low</span></div>
+ <div class="mu">Mobile: one column at a time, swipe tabs. Long-press a card to move it.</div></div>
+ <div class="bar" style="border-top:1.5px solid var(--ln);border-bottom:0;justify-content:space-around"><span>Home</span><b>Board</b><span>Mine</span><span>Feed</span></div></div>
+<div class="frame mob"><div class="bar"><span>✕</span><b>Menu</b></div><div class="pad col"><div>Dashboard</div><div>Projects</div><div>My tasks</div><div>Activity</div><div>Team</div><div class="btn o">Log out</div><div class="mu">Slide-in drawer replaces the desktop sidebar.</div></div></div>
+</div>
+</body></html>

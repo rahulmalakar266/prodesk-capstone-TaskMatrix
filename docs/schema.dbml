@@ -1,0 +1,48 @@
+// Paste into https://dbdiagram.io to re-export the ERD
+Table users {
+  _id ObjectId [pk]
+  name string
+  email string [unique]
+  passwordHash string
+  avatarUrl string
+  createdAt date
+}
+Table projects {
+  _id ObjectId [pk]
+  name string
+  key string [note: 'e.g. TM, unique']
+  description string
+  ownerId ObjectId [ref: > users._id]
+  members "[{userId, role}]" [note: 'embedded; role = admin|member|viewer']
+  createdAt date
+}
+Table tasks {
+  _id ObjectId [pk]
+  projectId ObjectId [ref: > projects._id]
+  title string
+  description string
+  status string [note: 'todo|in_progress|in_review|done']
+  priority string [note: 'low|medium|high|urgent']
+  assigneeId ObjectId [ref: > users._id]
+  reporterId ObjectId [ref: > users._id]
+  dueDate date
+  position number [note: 'order inside column']
+  labels "string[]"
+  overdueNotified boolean
+}
+Table comments {
+  _id ObjectId [pk]
+  taskId ObjectId [ref: > tasks._id]
+  authorId ObjectId [ref: > users._id]
+  body string
+  createdAt date
+}
+Table activities {
+  _id ObjectId [pk]
+  projectId ObjectId [ref: > projects._id]
+  taskId ObjectId [ref: > tasks._id]
+  actorId ObjectId [ref: > users._id]
+  type string [note: 'task_created|status_changed|assigned|commented|...']
+  meta object
+  createdAt date
+}
