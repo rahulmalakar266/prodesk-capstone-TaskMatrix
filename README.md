@@ -7,8 +7,8 @@
 | | |
 |---|---|
 | **Designated track** | Fullstack |
-| **Author** | _Your name_ · Employee ID _XXXX_ |
-| **Figma wireframes** | _paste public link here_ |
+| **Author** | Rahul Malakar · Employee ID_PDIT-INT-1196_ |
+| **Figma wireframes** | _https://www.figma.com/design/JOH6YjA2A5y2LFBaGr353r/TaskMatrix-Wireframes?node-id=0-1&t=aE7W44N9yXMpBtgl-1_|
 | **Demo video** | _paste link here_ |
 
 ## 1. Problem & vision
