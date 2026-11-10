@@ -9,7 +9,7 @@
 | **Designated track** | Fullstack |
 | **Author** | Rahul Malakar · Employee ID_PDIT-INT-1196_ |
 | **Figma wireframes** | _https://www.figma.com/design/JOH6YjA2A5y2LFBaGr353r/TaskMatrix-Wireframes?node-id=0-1&t=aE7W44N9yXMpBtgl-1_|
-| **Demo video** | _paste link here_ |
+| **Demo video** | _https://youtu.be/maZC-5-BfLE_ |
 
 ## 1. Problem & vision
 Small software teams lose time to scattered to-do lists and unclear ownership. TaskMatrix gives a team one shared board where every task has an owner, a priority and a deadline, and where everyone sees changes as they happen.
